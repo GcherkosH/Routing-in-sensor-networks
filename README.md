@@ -1,1 +1,10 @@
 # Routing-in-sensor-networks
+
+Part 1
+
+A new more optimized basic routing algorithm has been developed. The idea behind the algorithm is to use the current information about the nodes and the assigned router(if any) distance to the sink node via it’s designated router. This is also the solution suggested in the chapter “Georouting”, in the book “Ad hoc and sensor networks” by Dorothea Wagner and Roger Wattenhofer, from 2009. The node will check if it is closer to the sink node via the message sender instead of the current node it is using as router. If the node isn’t using any other node as router, the distance from the node itself will be compared with the distance to the sink via the message sender. Additionally the battery will be compared as well if the distances are exactly the same in case of the node using a router. In the case where no node is assigned, the message sender will be the new router if it’s battery is the same or better than the current node’s, and if the distance to the sink node via the message sender is the same or less.
+
+Part 2
+
+Cluster head are used in order to increase the performance. This is done by some randomly selected nodes announce themselves as clusterhead in each round. This is a suggested solution in the chapter “Data gathering”, in the book “Ad hoc and sensor networks” by Dorothea Wagner and Roger Wattenhofer, from 2009. The clusterhead that has the best battery and that is closest to the sink will be selected as in part 1. If two nodes that announces themselves as cluster head has the same battery level and distance to the the sink, then the one with the lowest id will be chosen. If the node has no neighbor that is a clusterhead it will perform the same algorithm as in part 1. The cluster heads will also perform the part 1 algorithm. The cluster heads aggregates the incoming content. Each time the cluster head
+gets an content message from another node it will increase the content with 1, and when the clusterhead send the content (after 1 round) it send all the content and set the content to 0.
